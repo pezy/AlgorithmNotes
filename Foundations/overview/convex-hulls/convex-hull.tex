@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{clrscode3e}
+\begin{document}
+	\begin{codebox}
+	\Procname{$\proc{Slow-Convex-Hull}(P)$}
+	\li \Comment \textit{Input}: A set $P$ of points in the plane.
+	\li \Comment \textit{Output}: A list $L$ containing the vertices of $CH(P)$ in clockwise order.
+	\li $E \gets 0$
+	\li \For $(p, q) \in P \times P$ and $p \neq q$
+	\li \Do $valid = true$
+	\li \For $r \in P$ and $r \neq p$ and $r \neq q$
+	\li \Do \If r lies left of the directed line from $p$ \To $q$
+	\li \Then $valid = false$
+	\End \End
+	\li \If $valid$ 
+	\li \Then $\attrib{E}{append}(\vec{pq})$ 
+	\End \End
+	\li From the set $E$ of edges construct a list $L$ of 
+	vertices of $CH(P)$, sorted in clockwise order.
+	\end{codebox}
+	
+	\begin{codebox}
+	\Procname{$\proc{Convex-Hull}(P)$}
+	\li \Comment \textit{Input}: A set $P$ of points in the plane.
+	\li \Comment \textit{Output}: A list containing the vertices of $CH(P)$ in clockwise order.
+	\li Sort the points by x-coordinate, resulting in a sequence $[p_1,...,p_n]$
+	\li $L_{upper} \gets \{p_1, p_2\}$
+	\li \For $i \gets 3 \To n$
+	\li \Do $\attrib{L_{upper}}{append}(p_i)$
+	\li \Do \While $\attrib{L_{upper}}{size}() > 2$ and $\attrib{L_{upper}}{turnRight}() == false$
+	\li \Do $\attrib{L_{upper}}{deleteMiddleOfLast3P}()$
+	\end{codebox}
+\end{document}
