@@ -1,4 +1,4 @@
-##Solutions of Exercises
+d##Solutions of Exercises
 
 > 1.1-1
 Give a real-world example that requires sorting or a real-world example that requires computing a convex hull.
@@ -34,3 +34,36 @@ How are the shortest-path and traveling-salesman problems given above similar? H
 Come up with a real-world problem in which only the best solution will do. Then come up with one in which a solution that is "approximately" the best is good enough.
 
 Given a set of integers, finding the maximum one is only the best solution will do, but finding any non-empty subset of them add up to zero is "approximately" the best is good enough.
+
+> 1.2-1
+Give an example of an application that requires algorithmic content at the application level, and discuss the function of the algorithms involved.
+
+Routing in network, finding next node, would request Dijkstra algorithm. It could find the shortest paths between nodes.
+
+> 1.2-2
+Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size n, insertion sort runs in 8n2 steps, while merge sort runs in 64n lg n steps. For which values of n does insertion sort beat merge sort?
+
+from `2` to `43`.
+
+```py
+import math
+
+for n in range(2, 100):
+	if 8 * n * n >= 64 * n * math.log(n, 2):
+		print(n)
+		break
+```
+
+> 1.2-3
+What is the smallest value of n such that an algorithm whose running time is 100*n^2 runs faster than an algorithm whose running time is 2^n on the same machine?
+
+n == 15
+
+```py
+import math
+
+for n in range(1, 100):
+	if 100 * n * n < math.pow(2, n):
+		print n
+		break
+```
