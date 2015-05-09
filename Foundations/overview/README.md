@@ -72,3 +72,4 @@ for n in range(1, 100):
 > For each function `f(n)` and time `t` in the following table, determine the largest size `n` of a problem that can be solved in time `t`, assuming that the algorithm to solve the problem takes `f(n)` microseconds.
 
 check and run [calc.py](calc.py)
+see [P1-1.pdf](P1-1.pdf)
