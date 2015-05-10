@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{clrscode3e}
+\begin{document}
+	\title{2.1-2}
+	\author{pezy}
+	\maketitle
+	\begin{codebox}
+	\Procname{$\proc{Nonincreasing-Insertion-Sort}(A)$}
+	\li \For $j \gets 2$ \To $\attrib{A}{length}$
+	\li		\Do	
+				$\id{key} \gets A[j]$
+	\li			\Comment Insert $A[j]$ into the sorted sequence $A[1 \twodots j-1]$.
+	\li			$i \gets j-1$
+	\li			\While $i > 0$ and $A[i] < \id{key}$
+	\li				\Do
+						$A[i+1] \gets A[i]$
+	\li					$i \gets i-1$
+					\End
+	\li			$A[i+1] \gets \id{key}$
+			\End				
+	\end{codebox}
+\end{document}
+	
+

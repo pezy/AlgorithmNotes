@@ -73,3 +73,32 @@ for n in range(1, 100):
 
 check and run [calc.py](calc.py)
 see [P1-1.pdf](P1-1.pdf)
+
+### 2.1-1
+> Using Figure 2.2 as a model, illustrate the operation of `INSERTION-SORT` on the array `A = <31, 41, 59, 26, 41, 58>.`
+
+```
+31 [41] 59 26 41 58
+31 41 [59] 26 41 58
+31 41 59 [26] 41 58
+26 31 41 59 [41] 58
+26 31 41 41 59 [58]
+26 31 41 41 58 59
+```
+
+### 2.1-2
+> Rewrite the `INSERTION-SORT` procedure to sort into nonincreasing instead of non- decreasing order.
+
+[procedure](nonincreasing-insertion-sort.pdf) |
+[code](insertion_sort.py) |
+[unittest](insertion_sort_unittest.py)
+
+### 2.1-3
+> Consider the searching problem:
+
+> **Input**: A sequence of n numbers `A = <a1, a2,...,an>` and a value v􏰁.
+
+> **Output**: An index i such that `v = A[i]` or the special value NIL if 􏰁v does not
+appear in A.
+
+> Write pseudocode for linear search, which scans through the sequence, looking for 􏰁v. Using a loop invariant, prove that your algorithm is correct. Make sure that your loop invariant fulfills the three necessary properties.
