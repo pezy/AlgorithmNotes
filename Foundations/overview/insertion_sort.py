@@ -21,3 +21,20 @@ def insertion_sort_non_increasing(lst):
             i -= 1
         lst[i + 1] = key
     return lst
+
+
+def linear_search(lst, v):
+    for j in range(0, len(lst)):
+        if v == lst[j]:
+            return j
+    return None
+
+
+def add_binary(a_lst, b_lst):
+    c_lst = [None]*(len(a_lst)+1)
+    carry = 0
+    for j in reversed(range(len(a_lst))):
+        c_lst[j+1] = (a_lst[j] + b_lst[j] + carry) % 2
+        carry = (a_lst[j] + b_lst[j] + carry) // 2
+    c_lst[0] = carry
+    return c_lst

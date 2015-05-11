@@ -102,3 +102,23 @@ see [P1-1.pdf](P1-1.pdf)
 appear in A.
 
 > Write pseudocode for linear search, which scans through the sequence, looking for 􏰁v. Using a loop invariant, prove that your algorithm is correct. Make sure that your loop invariant fulfills the three necessary properties.
+
+**loop invariant**: At the start of each iteration `for` loop, the `v` does not appear in the subarray `A[1,...,j-1]`.
+
+**Initialization**: We start by showing that the loop invariant holds before the first loop iteration, when `j` == 1. The subarray is empty. therefore, we can't find `v` in an empty array, which shows that the loop invariant holds prior to the first iteration of the loop.
+
+**Maintenance**: Next, we tackle the second property: showing that each iteration maintains the loop invariant. Informally, the body of the `for` loop works by comparing `A[1]` with `v`, if they are equal, we return index `j`, which is the result we want. Otherwise, we move to next element of the array, then preserves the loop invariant.
+
+**Termination**: Finally, we examine what happens when the loop terminates. The loop terminates when `j` equal to the `A.length`, we have that the subarray A[1..n] consists of the elements originally in A[1..n], but `v` does not appear. Observing that the subarray A[1..n] is the entire array, we conclude that `v` does not appear in A. Hence, the algorithm is correct.
+
+[pseudocode](linear-search.pdf) | [code](insertion_sort.py) |
+[unittest](insertion_sort_unittest.py)
+
+### 2.1-4
+Consider the problem of adding two n-bit binary integers, stored in two n-element arrays A and B. The sum of the two integers should be stored in binary form in an (n+1)-element array `C`. State the problem formally and write pseudocode for adding the two integers.
+
+**Input**: Two n-bit binary integers, `A=<a1,...,an>` and `B=<b1,...,bn>`.
+**Output**: An (n+1)-element array, `C=<c1,...,cn>` which is the sum of the two input integers.
+
+[pseudocode](add-binary.pdf) | [code](insertion_sort.py) |
+[unittest](insertion_sort_unittest.py)

@@ -3,3 +3,7 @@
 
 #tex
 .texpadtmp/
+
+#py
+__pycache__
+*.pyc

@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{clrscode3e}
+\begin{document}
+	\title{2.1-4}
+	\author{pezy}
+	\maketitle
+	\begin{codebox}
+	\Procname{$\proc{Add-Binary}(A, B)$}
+	\li $C \gets \proc{Array}(\attrib{A}{length}+1)$	
+	\li $carry \gets 0$
+	\li \For $j = \attrib{A}{length}$ \Downto $1$
+	\li		\Do
+				$C[j+1] \gets (A[j] + B[j] + carry) \% 2$
+	\li			$carry \gets (A[j] + B[j] + carry) / 2$
+			\End
+	\li	$C[1] \gets carry$
+	\li \Return $C$
+	\end{codebox}
+
+\end{document}
