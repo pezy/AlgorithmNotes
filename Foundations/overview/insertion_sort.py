@@ -38,3 +38,13 @@ def add_binary(a_lst, b_lst):
         carry = (a_lst[j] + b_lst[j] + carry) // 2
     c_lst[0] = carry
     return c_lst
+
+
+def selection_sort(lst):
+    for j in range(0, len(lst)-1):
+        smallest = j
+        for i in range(j+1, len(lst)):
+            if lst[i] < lst[smallest]:
+                smallest = i
+        lst[j], lst[smallest] = lst[smallest], lst[j]
+    return lst

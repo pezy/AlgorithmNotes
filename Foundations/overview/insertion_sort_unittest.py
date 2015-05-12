@@ -24,5 +24,11 @@ class InsertionSortTest(unittest.TestCase):
         self.assertEqual(add_binary([0, 0, 1], [1, 1, 1]), [1, 0, 0, 0])
         self.assertEqual(add_binary([1, 1, 1], [1, 1, 1]), [1, 1, 1, 0])
 
+    def test_selection_sort(self):
+        self.assertEqual(selection_sort([5, 2, 4, 6, 1, 3]), [1, 2, 3, 4, 5, 6])
+        self.assertEqual(selection_sort([5]), [5])
+        self.assertEqual(selection_sort([]), [])
+        self.assertEqual(selection_sort([1, 5, 2, 1, 6]), [1, 1, 2, 5, 6])
+
 if __name__ == '__main__':
     unittest.main()

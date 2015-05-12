@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{clrscode3e}
+\begin{document}
+	\title{2.2-2}
+	\author{pezy}
+	\maketitle
+	\begin{codebox}
+	\Procname{$\proc{Selection-Sort}(A)$}
+	\li \For $j \gets 1$ \To $\attrib{A}{length} - 1$
+	\li \Do	$min \gets j$
+	\li		\For $i \gets j + 1$ \To $\attrib{A}{length}$
+	\li			\Do \If $A[i] < A[min]$	
+	\li					\Do $min \gets i$ 
+						\End
+				\End
+	\li			\func{swap}($A[min], A[j]$)
+		\End
+	\li \Return $A$
+	\end{codebox}
+\end{document}

@@ -115,10 +115,21 @@ appear in A.
 [unittest](insertion_sort_unittest.py)
 
 ### 2.1-4
-Consider the problem of adding two n-bit binary integers, stored in two n-element arrays A and B. The sum of the two integers should be stored in binary form in an (n+1)-element array `C`. State the problem formally and write pseudocode for adding the two integers.
+> Consider the problem of adding two n-bit binary integers, stored in two n-element arrays A and B. The sum of the two integers should be stored in binary form in an (n+1)-element array `C`. State the problem formally and write pseudocode for adding the two integers.
 
 **Input**: Two n-bit binary integers, `A=<a1,...,an>` and `B=<b1,...,bn>`.
 **Output**: An (n+1)-element array, `C=<c1,...,cn>` which is the sum of the two input integers.
 
 [pseudocode](add-binary.pdf) | [code](insertion_sort.py) |
+[unittest](insertion_sort_unittest.py)
+
+### 2.2-1
+> Express the function `n^3/1000 - 100n^2 + 100n + 3` in terms of O-notation.
+
+![image](https://cloud.githubusercontent.com/assets/1147451/7592456/dd19381e-f905-11e4-8089-8ec444fca706.png)
+
+### 2.2-2
+> Consider sorting `n` numbers stored in array `A` by first finding the smallest element of `A` and exchanging it with the element in `A[1]`. Then find the second smallest element of `A`, and exchange it with `A[2]`􏰃. Continue in this manner for the first `n-1` elements of `A`. Write pseudocode for this algorithm, which is known as **selection sort**. What loop invariant does this algorithm maintain? Why does it need to run for only the first `n-1` elements, rather than for all `n` elements? Give the best-case and worst-case running times of selection sort in O-notation.
+
+[pseudocode](selection-sort.pdf) | [code](insertion_sort.py) |
 [unittest](insertion_sort_unittest.py)
