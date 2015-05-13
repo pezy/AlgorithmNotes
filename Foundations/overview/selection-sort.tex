@@ -1,20 +1,131 @@
-\documentclass{article}
+\documentclass[twoside]{article}
+\setlength{\oddsidemargin}{0.25 in}
+\setlength{\evensidemargin}{-0.25 in}
+\setlength{\topmargin}{-0.6 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
 \usepackage{clrscode3e}
+\usepackage{multicol}
+\usepackage{amsmath}
+
 \begin{document}
 	\title{2.2-2}
 	\author{pezy}
 	\maketitle
-	\begin{codebox}
-	\Procname{$\proc{Selection-Sort}(A)$}
-	\li \For $j \gets 1$ \To $\attrib{A}{length} - 1$
-	\li \Do	$min \gets j$
-	\li		\For $i \gets j + 1$ \To $\attrib{A}{length}$
-	\li			\Do \If $A[i] < A[min]$	
-	\li					\Do $min \gets i$ 
-						\End
-				\End
-	\li			\func{swap}($A[min], A[j]$)
-		\End
-	\li \Return $A$
-	\end{codebox}
+	\begin{multicols}{3}
+		\begin{codebox}
+			\Procname{$\proc{Selection-Sort}(A)$}
+			\li \For $j \gets 1$ \To $\attrib{A}{length} - 1$
+			\li \Do	$min \gets j$
+			\li		\For $i \gets j + 1$ \To $\attrib{A}{length}$
+			\li			\Do \If $A[i] < A[min]$	
+			\li					\Do $min \gets i$ 
+			\End
+			\End
+			\li			\func{swap}($A[min], A[j]$)
+			\End
+		\end{codebox}
+		
+		\columnbreak
+		
+		\begin{center}	% column 2 holds cost of each statement
+			\textbf{\large Cost}
+			\\*$c_{1}$
+			\\*$c_{2}$
+			\\*$c_{3}$
+			\\*$c_{4}$
+			\\*$c_{5}$
+			\\*$c_{6}$
+		\end{center}
+		
+		\columnbreak
+		
+		\begin{flushleft} % displays run time of each statement
+			\textbf{\large Time}
+			\\* $n$
+			\\* $n-1$
+			\\* $\sum _{ j=1 }^{ n-1 } t_j $
+			\\* $\sum _{ j=1 }^{ n-1 } (t_j - 1) $
+			\\* $0 \To \sum _{ j=1 }^{ n-1 } (t_j - 1)$
+			\\* $n-1$
+		\end{flushleft}
+	\end{multicols}
+	
+	We will now calculate the running time, $T(n)$,  of \proc{Selection-Sort}:
+	
+	\begin{align}
+	\notag
+	T(n) &= c_1 n +  c_2 (n-1) + c_3 \sum _{j=1}^{n-1}  t_j + c_4 \sum _{j=1}^{n-1} ( t_j -1 ) + k c_5 \sum _{j=1}^{n-1}  (t_j -1)  + c_6 (n-1),\\
+	\notag
+	&= c_1 n+ (c_2 + c_6)(n-1) + c_3 \sum _{j=1}^{n-1}  t_j + (c_4 + k c_5) \sum _{j=1}^{n-1}  (t_j -1),\\
+	\notag
+	&= c_1 n+ (c_2 + c_6)(n-1) + (c_3 + c_4 + k c_5 ) \sum _{j=1}^{n-1}  t_j - (c_4 + k c_5) (n-1),\\
+	\label{eq:Tn}
+	&= c_1 n +(c_2 + c_6 - c_4 - k c_5) (n-1) + (c_3 + c_4 + k c_5 ) \sum _{j=1}^{n-1}  t_j.
+	\end{align}
+	
+	\section{Best case running time}
+	In the  {\bf BEST CASE} running time, the list of input will already be sorted. Thus, the body of \If is never step in, and $k = 0$. we obtain that $t_j = j+1$, for every choice of j. Thus,
+	
+	\[
+	\sum_{j=1}^{n-1} t_j = \frac{1}{2} n(n+1) - 1 = (\frac{n}{2}+1)(n-1)
+	\]
+	
+	Substituting this into the last term of Eqn.~(\ref{eq:Tn}) yields,
+	\begin{align}
+	T(n) &= c_1 n +(c_2 + c_6 - c_4)(n-1) + (c_3 + c_4)(\frac{n}{2}+1)(n-1) \\
+	&= \frac{c_3+c_4}{2}n^2 + (c_1+c_2+\frac{c_3}{2}-\frac{c_4}{2}+c_6)n - (c_2+c_3+c_6)
+	\end{align}
+	
+	which can be simplified to the linear equation $T(n) = An^2+Bn+C$ where
+	\begin{align*}
+	A &= \frac{c_3+c_4}{2} > 0,\\
+	B &= c_1+c_2+\frac{c_3}{2}-\frac{c_4}{2}+c_6, \quad\text{and,}\\
+	C &= -c_2-c_3-c_6 < 0.
+	\end{align*}
+	
+	Therefore, the {\bf BEST CASE} running time of the \proc{Selection-Sort} Algorithm equals:
+	\begin{center}
+		$\boldsymbol{T(n) = An^2+Bn+C}$
+	\end{center}
+	
+	%
+	%Begin section for Worst Case Running Time
+	%
+	%
+	\section{Worst case running time}
+	We will now look at the {\bf WORST CASE} for \proc{Selection-Sort}:
+	\begin{itemize}
+		\item In the worst case, the \If statement is invoked on every occasion.
+		\item This means $ k = 1$
+	\end{itemize}
+	
+	Substituting $t_{ j }$ with $j$ into the last summation in  Eqn.~(\ref{eq:Tn}) yields,
+	
+	\[
+	\sum_{j=1}^{n-1} t_j = \frac{1}{2} n(n+1) - 1 = (\frac{n}{2}+1)(n-1)
+	\]
+	
+	Thus, Eqn.~(\ref{eq:Tn}) becomes,
+	\begin{align*}
+	T(n)   &=   c_1 n +(c_2+c_6-c_4-c_5)(n-1) + (c_3+c_4+c_5)(\frac{n}{2}+1)(n-1),\\
+	&= \frac{c_3+c_4+c_5}{2} n^2 + (c_1+c_2+\frac{c_3}{2}-\frac{c_4}{2}-\frac{c_5}{2}+c_6) n - (c_2+c_3+c_6)
+	\end{align*}
+	a \emph{quadratic function} of $n$, the input sequence length, where,
+	\begin{align*}
+	A' &= \frac{c_3+c_4+c_5}{2} > 0,\\
+	B' &= c_1+c_2+\frac{c_3}{2}-\frac{c_4}{2}-\frac{c_5}{2}+c_6, \quad\text{and,}\\
+	C' &= -c_{2}-c_{3}-c_{6} < 0.
+	\end{align*}
+	
+	
+	Therefore, the {\bf WORST CASE} running time of the \proc{Selection-Sort} Algorithm also equals:
+	\begin{center}
+		$\boldsymbol{T(n) = An^2+Bn+C}$
+	\end{center}
+	
 \end{document}

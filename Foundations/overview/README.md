@@ -131,5 +131,11 @@ appear in A.
 ### 2.2-2
 > Consider sorting `n` numbers stored in array `A` by first finding the smallest element of `A` and exchanging it with the element in `A[1]`. Then find the second smallest element of `A`, and exchange it with `A[2]`􏰃. Continue in this manner for the first `n-1` elements of `A`. Write pseudocode for this algorithm, which is known as **selection sort**. What loop invariant does this algorithm maintain? Why does it need to run for only the first `n-1` elements, rather than for all `n` elements? Give the best-case and worst-case running times of selection sort in O-notation.
 
-[pseudocode](selection-sort.pdf) | [code](insertion_sort.py) |
+**loop invariant**: At the start of each iteration `for` loop, the subarray `A[1..j-1]` consists of the smallest elements of the array, and in sorted order.
+
+Because we always find the smallest element of `A`, when the first `n-1` elements in sorted order. The last element must bigger than before. Thus, we don't need to run for all `n` elements.
+
+[O-notation and pseudocode](selection-sort.pdf) | [code](insertion_sort.py) |
 [unittest](insertion_sort_unittest.py)
+
+Selection sort is always a ![image](https://cloud.githubusercontent.com/assets/1147451/7592456/dd19381e-f905-11e4-8089-8ec444fca706.png) algorithm.
