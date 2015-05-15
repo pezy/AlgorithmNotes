@@ -126,7 +126,7 @@ appear in A.
 ### 2.2-1
 > Express the function `n^3/1000 - 100n^2 + 100n + 3` in terms of O-notation.
 
-![image](https://cloud.githubusercontent.com/assets/1147451/7592456/dd19381e-f905-11e4-8089-8ec444fca706.png)
+`O(n^3)`
 
 ### 2.2-2
 > Consider sorting `n` numbers stored in array `A` by first finding the smallest element of `A` and exchanging it with the element in `A[1]`. Then find the second smallest element of `A`, and exchange it with `A[2]`􏰃. Continue in this manner for the first `n-1` elements of `A`. Write pseudocode for this algorithm, which is known as **selection sort**. What loop invariant does this algorithm maintain? Why does it need to run for only the first `n-1` elements, rather than for all `n` elements? Give the best-case and worst-case running times of selection sort in O-notation.
@@ -138,4 +138,22 @@ Because we always find the smallest element of `A`, when the first `n-1` element
 [O-notation and pseudocode](selection-sort.pdf) | [code](insertion_sort.py) |
 [unittest](insertion_sort_unittest.py)
 
-Selection sort is always a ![image](https://cloud.githubusercontent.com/assets/1147451/7592456/dd19381e-f905-11e4-8089-8ec444fca706.png) algorithm.
+Selection sort is always a `O(n^2)` algorithm.
+
+### 2.2-3
+> Consider linear search again (see Exercise 2.1-3). How many elements of the input sequence need to be checked on the average, assuming that the element being searched for is equally likely to be any element in the array? How about in the worst case? What are the average-case and worst-case running times of linear search in ‚O-notation? Justify your answers.
+
+- half of the elements need to be checked on the average.
+- worst case: all of them need to be checked.
+- average: n/2 -> O(n)
+- worst: n -> O(n)
+
+Thus, `O(n)` in O-notation.
+
+### 2.2-4
+> How can we modify almost any algorithm to have a good best-case running time?
+
+Hardcode the solution for some particular input, and check whether the input
+is that one. If so, simply output the hardcoded solution. One could also check whether the problem is already solved (when sorting, for instance, check first if input is already sorted).
+
+see more answer in [StackOverflow](http://stackoverflow.com/questions/18103762/how-can-we-modify-any-algorithm-to-have-a-best-case-running-time)
